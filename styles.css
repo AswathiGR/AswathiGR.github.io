@@ -9,6 +9,7 @@
 .alert {
   background-color: #A7C7E7; 
   align-items: center;
+  padding:10px;
   align-content: center;
   color: white;
   width: 300px;
