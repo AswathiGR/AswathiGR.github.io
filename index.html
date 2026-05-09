@@ -1,214 +1,983 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aswathi G R| Website </title>
-    <meta name="theme-color" content="#724e2c">
-       
- 
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v6.0.0-beta2/css/all.css"
-        integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA=="
-        crossorigin="anonymous" referrerpolicy="no-referrer">
-    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-
-    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
-    <link href="https://www.unpkg.com/atomic-css@1.0.0/dist/atomic.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://unpkg.com/tippy.js@6/animations/scale.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
-    <link rel='stylesheet' href="style.css">
-    <link rel="manifest" href="manifest.json">
-
+    <meta name="description" content="Aswathi G R - Embedded Software Engineer | Full Stack Developer | Designer | Creative Writer">
+    <meta name="theme-color" content="#1a1a1a">
+    <title>Aswathi G R | Engineer</title>
     
-<style>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Animate CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #0066ff;
+            --primary-dark: #0052cc;
+            --secondary: #ff6b6b;
+            --dark: #0f0f0f;
+            --light: #f8f9fa;
+            --text-primary: #1a1a1a;
+            --text-secondary: #666666;
+            --border: #e0e0e0;
+            --accent: #667eea;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
-          /*  background-image: url('https://raw.githubusercontent.com/AswathiGR/AswathiGR.github.io/refs/heads/main/bg3.png');  /* Path to the image file */
-            /* background-size: cover;  /* Ensures the image covers the whole page */
-            /* background-repeat: no-repeat;  Prevents the image from repeating */
-            
-            background-color: #66023C;
+            font-family: 'Inter', sans-serif;
+            color: var(--text-primary);
+            background-color: var(--light);
+            line-height: 1.6;
+        }
+
+        /* ==================== HEADER & NAVIGATION ==================== */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid var(--border);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-primary);
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .cta-button {
+            background: var(--primary);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .cta-button:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0, 102, 255, 0.3);
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            nav {
+                padding: 1rem;
+            }
+        }
+
+        /* ==================== HERO SECTION ==================== */
+        .hero {
+            margin-top: 60px;
+            padding: 4rem 2rem;
+            min-height: calc(100vh - 60px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, rgba(0, 102, 255, 0.05) 0%, rgba(102, 126, 234, 0.05) 100%);
+        }
+
+        .hero-container {
+            max-width: 1000px;
+            width: 100%;
+            text-align: center;
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .hero h1 span {
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+        }
+
+        .hero-skills {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+
+        .skill-badge {
+            background: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            border: 1px solid var(--border);
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+
+        .skill-badge:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            border: none;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(0, 102, 255, 0.3);
+        }
+
+        .btn-secondary {
+            background: white;
+            color: var(--primary);
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            border: 2px solid var(--primary);
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-secondary:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero {
+                min-height: auto;
+                padding: 3rem 1rem;
+            }
+        }
+
+        /* ==================== SECTIONS ==================== */
+        section {
+            padding: 4rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 3rem;
+            text-align: center;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--primary), transparent);
+        }
+
+        /* ==================== EXPERIENCE ==================== */
+        .experience-container {
+            display: grid;
+            gap: 2rem;
+        }
+
+        .experience-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .experience-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .company-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 1rem;
+        }
+
+        .company-info h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .company-info .company-name {
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        .company-details {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        .time-period {
+            background: var(--light);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            white-space: nowrap;
+        }
+
+        .experience-description {
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+
+        .experience-highlights {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .highlight {
+            background: linear-gradient(135deg, rgba(0, 102, 255, 0.1) 0%, rgba(102, 126, 234, 0.1) 100%);
+            padding: 1rem;
+            border-radius: 8px;
+            border-left: 3px solid var(--primary);
+            font-size: 0.9rem;
+        }
+
+        .highlight strong {
+            color: var(--primary);
+        }
+
+        /* ==================== SKILLS SECTION ==================== */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-category {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            transition: all 0.3s ease;
+        }
+
+        .skill-category:hover {
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+            transform: translateY(-5px);
+        }
+
+        .skill-category h4 {
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .skill-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+        }
+
+        .skill-tag {
+            background: var(--light);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            border: 1px solid var(--border);
+            transition: all 0.3s ease;
+        }
+
+        .skill-tag:hover {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+            transform: translateY(-2px);
+        }
+
+        /* ==================== EDUCATION ==================== */
+        .education-container {
+            display: grid;
+            gap: 2rem;
+        }
+
+        .education-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            border-left: 4px solid var(--primary);
+            transition: all 0.3s ease;
+        }
+
+        .education-card:hover {
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+            transform: translateX(5px);
+        }
+
+        .education-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .education-card .institution {
+            color: var(--primary);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .education-card .duration {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .highlights-list {
+            list-style: none;
+            margin-top: 1rem;
+        }
+
+        .highlights-list li {
+            padding-left: 1.5rem;
+            position: relative;
+            margin-bottom: 0.5rem;
+            color: var(--text-secondary);
+        }
+
+        .highlights-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-weight: bold;
+        }
+
+        /* ==================== AWARDS ==================== */
+        .awards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .award-card {
+            background: linear-gradient(135deg, rgba(0, 102, 255, 0.1) 0%, rgba(102, 126, 234, 0.1) 100%);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid rgba(0, 102, 255, 0.2);
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .award-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px rgba(0, 102, 255, 0.2);
+        }
+
+        .award-icon {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+        }
+
+        .award-card h4 {
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .award-card p {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        /* ==================== CONTACT ==================== */
+        .contact-section {
+            text-align: center;
+            background: linear-gradient(135deg, rgba(0, 102, 255, 0.05) 0%, rgba(102, 126, 234, 0.05) 100%);
+            padding: 4rem 2rem;
+            border-radius: 12px;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 2rem 0;
+            flex-wrap: wrap;
+        }
+
+        .contact-link {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-decoration: none;
+            color: var(--text-primary);
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .contact-link:hover {
+            color: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .social-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: white;
+            border: 2px solid var(--border);
+            color: var(--primary);
+            text-decoration: none;
+            font-size: 1.25rem;
+            transition: all 0.3s ease;
+        }
+
+        .social-icon:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-5px);
+        }
+
+        /* ==================== FOOTER ==================== */
+        footer {
+            background: var(--dark);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 4rem;
+        }
+
+        /* ==================== ANIMATIONS ==================== */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        /* ==================== UTILITIES ==================== */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .mt-3 { margin-top: 1.5rem; }
+        .mb-3 { margin-bottom: 1.5rem; }
+        .text-center { text-align: center; }
+
+        /* ==================== RESPONSIVE ==================== */
+        @media (max-width: 768px) {
+            section {
+                padding: 2rem 1rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .experience-highlights {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+            }
+
+            .btn-primary, .btn-secondary {
+                width: 100%;
+            }
+
+            .company-header {
+                flex-direction: column;
+            }
+
+            .time-period {
+                margin-top: 1rem;
+            }
         }
     </style>
-
 </head>
+<body>
 
-<body class="animate__animated animate__fadeIn">
-    <div class="navbar padding mt-3">
-        <a href="https://aswathigr.github.io/" class="text-black navbar-brand hover:opacity-80"><b>Aswathi</b> G R</a>
-          
-        <div class="navbar-nav">
-             <a class="btn btn-info" href="https://drive.google.com/file/d/1AaZHGchWVHsf__A075lKSzKSvoosv4vW/view?usp=drivesdk"> myResume</a>
-        </div>
-        </div>
-    </div>
+    <!-- ==================== HEADER ==================== -->
+    <header>
+        <nav>
+            <a href="#home" class="logo">aswathi.dev</a>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <a href="https://drive.google.com/file/d/1AaZHGchWVHsf__A075lKSzKSvoosv4vW/view?usp=drivesdk" class="cta-button" target="_blank">Download Resume</a>
+        </nav>
+    </header>
 
-    <div class="head padding section">
-        <p class="head-name text-gray">
-             <h1 class="home__title"><span>Hello World, I am Aswathi G R</h1>
-        </p>
-        <p class="head-name text-gray">
-            Epistemophile and Enthusiast.
-        </p>
-
-
-    </div>
-
-
-    <div class="projects padding section">  
-        <p class="projects-title"> Career Onset </p>
-<!--          <a href="https://github.com/AswathiGR" target="_blank"/> -->
-
-
-
-        <!--          <a href="https://github.com/AswathiGR" target="_blank"/> -->
-
-
- 
-    
-
-            <div class="project mt-2 p-3 rounded-lg">
-                              <div class="project-left">
-                    <div class="project-title text-black">
-                        Engineering @ <a href="https://www.bosch.in/
-">BOSCH  </a>                   
-                      
-                    </div>
-                    <div class="project-sdescription text-gray-600 mt-1">
-Component Responsible for core controller functions TCS,ABS,VDC and PT in Application Software level. <br> 
-                        
-3+ years of experience in tools like ASCET,DOORS, SHARCC, SIMULINK, CANalyzer, HIL/SIL <br> 
-                        
-Trained professional in Requirement Engineering, Vehicle Test Catalogue Analysis, Simulation modelling in MATLAB, Unit and Component Testing, ASPICE.  
- <br> 
-                    <br>  
-                 </div>
-      
-                </div>
-                <div class="project-right">
-                    <button  class="btn btn-info"><a href="https://drive.google.com/drive/folders/1BsZDdRLFlFpnGM0KBDscgQcWsd2otJKV"> Recognitions </a></button>
-                        
-                </div>
-            </div>
-        </a>
-   </div>
-<div class="projects padding section">  
-        <p class="projects-title"> Live to Learn </p>
-<!--          <a href="https://github.com/AswathiGR" target="_blank"/> -->
-
-    
-            <div class="project mt-2 p-3 rounded-lg">
-                              <div class="project-left">
-                    <div class="project-title text-black">
-                        Developer Me
-                         <i class="fa-solid fa-code"></i>
-                    </div>
-                    <div class="project-sdescription text-gray-600 mt-1">
-<b>App Dev:</b> Built Apps with C#. Was an App Dev Intern at <a href="https://epoqzero.com/"><u>Epoq Zero </u><a> <br>
-<b>Web Dev :</b> HTML, CSS, Bootstrap, Flask, Django<br>
-Opensource Contributor at <a href="https://www.girlscript.tech
-"><u>Girlscript</u></a>                    </div>
-      
-                </div>
-                <div class="project-right">
-                    <button  class="btn btn-info"><a href="https://github.com/AswathiGR"> Projects</a></button>
-                        
-                </div>
-            </div>
-        </a>
-            <div class="project mt-2 p-3 rounded-lg">
-<!--                <a href="https://drive.google.com/drive/folders/1MRh5CeLYUdeRQEFicMpXA38gMEa3wpIV" target="_blank"> -->
-                <div class="project-left">
-                    <div class="project-title text-black">
-                        Designer Me
-                           <i class="fa-solid fa-bezier-curve "></i>
-                    </div>
-                    <div class="project-sdescription text-gray-600 mt-1">
-
-                        Skills: Adobe Ps, Figma <br><b> Volunteer:</b> Design volunteer of IEEE WIE Kerala Section<br>
-Design Volunteer at IEEE SB GECPKD, INVENTO.<br>
-<b>Intern:</b> Was a Design Intern at <a href="http://acuteangle.io/"><u>Acute Angle</u></a> for 6 Months
-                    </div>
-                    <div class="project-description text-gray-600 mt-1">
-                    </div>
-                </div>
-                <div class="project-right">
-                 
-                     <button  class="btn btn-info"><a href="https://drive.google.com/drive/folders/1MRh5CeLYUdeRQEFicMpXA38gMEa3wpIV"> Designs</a></button>
-                </div>
-            </div>
-        </a>
-        </a>
-            <div class="project mt-2 p-3 rounded-lg">
+    <!-- ==================== HERO SECTION ==================== -->
+    <section id="home" class="hero">
+        <div class="hero-container animate__animated animate__fadeInUp">
+            <h1>Hello, I'm <span>Aswathi G R</span></h1>
+            <p class="hero-subtitle">Embedded Software Engineer • Full Stack Developer • Designer • Creative Writer</p>
             
-                <div class="project-left">
-                    <div class="project-title text-black">
-                       Writer Me
-                        <i class="fa-solid fa-feather-pointed"></i>
-                    </div>
-                    <div class="project-sdescription text-gray-600 mt-1">
+            <div class="hero-skills">
+                <span class="skill-badge">C/C++</span>
+                <span class="skill-badge">Embedded Systems</span>
+                <span class="skill-badge">Real-Time Systems</span>
+                <span class="skill-badge">Linux</span>
+                <span class="skill-badge">Web Development</span>
+                <span class="skill-badge">UI/UX Design</span>
+            </div>
 
-                        <b>Creative Writer</b> : Won National BalSree For Creative Writing.<br>
-Won State level Intercollege poem Writing Competition <br>
-<b>Content Writer</b> : Was a Content Writing intern for 6 Months
+            <div class="hero-buttons">
+                <a href="#experience" class="btn-primary">View My Work</a>
+                <a href="#contact" class="btn-secondary">Get In Touch</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== EXPERIENCE SECTION ==================== -->
+    <section id="experience">
+        <h2 class="section-title">Professional Experience</h2>
+        
+        <div class="experience-container">
+            <!-- BOSCH Experience -->
+            <div class="experience-card">
+                <div class="company-header">
+                    <div class="company-info">
+                        <h3><span class="company-name">BOSCH</span> — Vehicle Motion Department</h3>
+                        <p class="company-details">Associate Engineer – Application Software</p>
                     </div>
-                    <div class="project-description text-gray-600 mt-1">
+                    <span class="time-period">Jan 2023 – Present</span>
+                </div>
+
+                <p class="experience-description">
+                    Designing and developing safety-critical C/C++ embedded applications for real-time automotive control systems (ABS, TCS, Powertrain) on resource-constrained platforms. Architecting scalable, maintainable embedded software components with deterministic performance requirements, handling complex multi-threaded systems.
+                </p>
+
+                <div class="experience-highlights">
+                    <div class="highlight">
+                        <strong>Core Focus:</strong> Embedded systems architecture, real-time systems, automotive networking
+                    </div>
+                    <div class="highlight">
+                        <strong>Technical Stack:</strong> C/C++, Linux, CAN/SPI/I2C, RTOS
+                    </div>
+                    <div class="highlight">
+                        <strong>Standards:</strong> ISO 26262, ASPICE, V-Model lifecycle
+                    </div>
+                    <div class="highlight">
+                        <strong>Tools:</strong> CANalyzer, CANoe, Git, DOORS, SHARCC
                     </div>
                 </div>
-                <div class="project-right">
-                         
-                   
+
+                <div>
+                    <strong>Key Achievements:</strong>
+                    <ul class="highlights-list">
+                        <li>Delivered safety-critical components meeting zero-defect standards for global OEM customers</li>
+                        <li>Pioneered integration of Generative AI into embedded development workflows, improving productivity by 20%</li>
+                        <li>Led hackathon-winning platform unifying the entire SDLC</li>
+                        <li>Mentored team members on embedded systems best practices</li>
+                        <li>Received multiple performance recognitions: Bravo, Best Tyro, Tech Pro, Catalyst awards</li>
+                    </ul>
                 </div>
             </div>
-        </a>
-     
-        </a>
-            <div class="project mt-2 p-3 rounded-lg">
-            
-                <div class="project-left">
-                    <div class="project-title text-black">
-                       Also Me
-                        <i class="fa-solid fa-sparkles"></i>
-                    </div>
-                    <div class="project-sdescription text-gray-600 mt-1">
+        </div>
+    </section>
 
-                        <h7> <strong>Physics :</strong> I chose Engineering to experience the beauty of practical physics. Also, I am an astrophile. <br>
-                               <strong>Hardware, ML, AI :</strong> Interested in the past, present and future of machines; so ML and AI<br>
-                               <strong>Books,Debates,Sports :</strong> Almost caring about the outer world. Don't want to be in a bubble.<br>
-                        </h7>
-                 
-                    </div>
-                    <div class="project-description text-gray-600 mt-1">
-                    </div>
-                </div>
-                <div class="project-right">
-                         
-                  
+    <!-- ==================== SKILLS SECTION ==================== -->
+    <section id="skills">
+        <h2 class="section-title">Technical Skills</h2>
+        
+        <div class="skills-grid">
+            <div class="skill-category">
+                <h4><i class="fas fa-microchip"></i> Embedded Development</h4>
+                <div class="skill-list">
+                    <span class="skill-tag">C/C++</span>
+                    <span class="skill-tag">Linux</span>
+                    <span class="skill-tag">RTOS</span>
+                    <span class="skill-tag">ARM Architecture</span>
+                    <span class="skill-tag">Bare Metal</span>
+                    <span class="skill-tag">Assembly</span>
                 </div>
             </div>
-        </a>
-</div>
 
-</div>
-<div id="page-wrapper" class="navibar">
-  <ul>
- <li><h5 style="color: white;">Happy to Connect ^ _ ^</h5> </li>
-   <li>
-  <a href="https://github.com/AswathiGR">Github</a>
-       <a href="mailto:aswathigr.here@gmail.com">E-Mail</a>
-  <a href="https://www.linkedin.com/in/aswathigr/">LinkedIn</a>
-        <!--=====  <a href="https://discordapp.com/users/Aswathi G R#4019">Discord</a> =====--> 
-</li>
-</ul>
-</div>
+            <div class="skill-category">
+                <h4><i class="fas fa-network-wired"></i> Communication & Networking</h4>
+                <div class="skill-list">
+                    <span class="skill-tag">CAN Bus</span>
+                    <span class="skill-tag">SPI</span>
+                    <span class="skill-tag">I2C</span>
+                    <span class="skill-tag">Networking Protocols</span>
+                    <span class="skill-tag">IPC</span>
+                    <span class="skill-tag">Sockets</span>
+                </div>
+            </div>
+
+            <div class="skill-category">
+                <h4><i class="fas fa-tachometer-alt"></i> Real-Time Systems</h4>
+                <div class="skill-list">
+                    <span class="skill-tag">Multithreading</span>
+                    <span class="skill-tag">Task Scheduling</span>
+                    <span class="skill-tag">Real-Time Design</span>
+                    <span class="skill-tag">System Optimization</span>
+                </div>
+            </div>
+
+            <div class="skill-category">
+                <h4><i class="fas fa-code"></i> Web Development</h4>
+                <div class="skill-list">
+                    <span class="skill-tag">HTML/CSS</span>
+                    <span class="skill-tag">JavaScript</span>
+                    <span class="skill-tag">Flask</span>
+                    <span class="skill-tag">Django</span>
+                    <span class="skill-tag">Bootstrap</span>
+                </div>
+            </div>
+
+            <div class="skill-category">
+                <h4><i class="fas fa-palette"></i> Design Tools</h4>
+                <div class="skill-list">
+                    <span class="skill-tag">Figma</span>
+                    <span class="skill-tag">Adobe Photoshop</span>
+                    <span class="skill-tag">UI/UX Design</span>
+                    <span class="skill-tag">Wireframing</span>
+                </div>
+            </div>
+
+            <div class="skill-category">
+                <h4><i class="fas fa-tools"></i> Development Tools</h4>
+                <div class="skill-list">
+                    <span class="skill-tag">Git</span>
+                    <span class="skill-tag">DOORS</span>
+                    <span class="skill-tag">CANalyzer</span>
+                    <span class="skill-tag">MATLAB/Simulink</span>
+                    <span class="skill-tag">Python</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== EDUCATION SECTION ==================== -->
+    <section id="education">
+        <h2 class="section-title">Education</h2>
+        
+        <div class="education-container">
+            <div class="education-card">
+                <h3>Master of Technology – Embedded Systems</h3>
+                <p class="institution">BITS Pilani</p>
+                <p class="duration">July 2025 – Present</p>
+                <p>Advanced studies in embedded systems, real-time systems, and hardware-software co-design (concurrent with full-time employment)</p>
+                <div style="margin-top: 1rem; padding: 0.75rem; background: white; border-radius: 6px; font-weight: 600; color: var(--primary);">
+                    Current GPA: 9.47/10
+                </div>
+            </div>
+
+            <div class="education-card">
+                <h3>Bachelor of Technology (Honours) – Electronics & Communication Engineering</h3>
+                <p class="institution">Government Engineering College Palakkad</p>
+                <p class="duration">August 2018 – August 2022</p>
+                <ul class="highlights-list">
+                    <li>Honours Degree with 90% aggregate marks (APJ Abdul Kalam Technological University)</li>
+                    <li>Best Outgoing Student Award — Recognition for academic excellence and leadership</li>
+                    <li>Class project "Electa" selected for National Conference on Current and Emerging Technologies</li>
+                    <li>Executive member of IEEE, IEEE Women In Engineering, IEDC, FOSS, Tinkerhub</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== AWARDS & RECOGNITIONS ==================== -->
+    <section>
+        <h2 class="section-title">Awards & Recognitions</h2>
+        
+        <div class="awards-grid">
+            <div class="award-card">
+                <div class="award-icon"><i class="fas fa-trophy"></i></div>
+                <h4>Best Tyro Award</h4>
+                <p>BOSCH | Outstanding early-career performance</p>
+            </div>
+
+            <div class="award-card">
+                <div class="award-icon"><i class="fas fa-star"></i></div>
+                <h4>Bravo Award</h4>
+                <p>BOSCH | Exceptional contribution and impact</p>
+            </div>
+
+            <div class="award-card">
+                <div class="award-icon"><i class="fas fa-rocket"></i></div>
+                <h4>Tech Pro Award</h4>
+                <p>BOSCH | Technical excellence recognition</p>
+            </div>
+
+            <div class="award-card">
+                <div class="award-icon"><i class="fas fa-lightbulb"></i></div>
+                <h4>Catalyst Award</h4>
+                <p>BOSCH | Innovation and leadership</p>
+            </div>
+
+            <div class="award-card">
+                <div class="award-icon"><i class="fas fa-medal"></i></div>
+                <h4>Best Outgoing Student</h4>
+                <p>GECPKD | Academic excellence and leadership</p>
+            </div>
+
+            <div class="award-card">
+                <div class="award-icon"><i class="fas fa-certificate"></i></div>
+                <h4>ISO 26262 Certification</h4>
+                <p>TÜV Nord | Functional Safety Basic Level</p>
+            </div>
+
+            <div class="award-card">
+                <div class="award-icon"><i class="fas fa-pen-fancy"></i></div>
+                <h4>National BalSree Award</h4>
+                <p>Creative Writing | National Competition</p>
+            </div>
+
+            <div class="award-card">
+                <div class="award-icon"><i class="fas fa-book"></i></div>
+                <h4>NPTEL Silver Medal</h4>
+                <p>C and Python Programming | IIT Madras</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== MULTIFACETED PROFILE ==================== -->
+    <section>
+        <h2 class="section-title">Beyond Engineering</h2>
+        
+        <div class="skills-grid">
+            <div class="skill-category">
+                <h4><i class="fas fa-code"></i> Full Stack Developer</h4>
+                <p style="margin: 1rem 0;">Built mobile applications with C#. Worked as an App Dev Intern at <strong>Epoq Zero</strong>. Experienced in web development with HTML, CSS, Bootstrap, Flask, and Django. Open source contributor at <strong>Girlscript</strong>.</p>
+                <a href="https://github.com/AswathiGR" class="btn-primary" style="display: inline-block;">View Projects</a>
+            </div>
+
+            <div class="skill-category">
+                <h4><i class="fas fa-palette"></i> Designer & Creative Professional</h4>
+                <p style="margin: 1rem 0;">Proficient in Adobe Photoshop and Figma. Design volunteer at IEEE WIE Kerala Section and INVENTO. Completed 6-month design internship at <strong>Acute Angle</strong>. National award-winning creative writer.</p>
+                <a href="https://drive.google.com/drive/folders/1MRh5CeLYUdeRQEFicMpXA38gMEa3wpIV" class="btn-primary" style="display: inline-block;">View Portfolio</a>
+            </div>
+
+            <div class="skill-category">
+                <h4><i class="fas fa-feather-pointed"></i> Writer & Content Creator</h4>
+                <p style="margin: 1rem 0;">Won National BalSree for Creative Writing. State-level competition winner for poem writing. 6-month content writing internship experience. Passionate about storytelling and technical writing.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== CONTACT SECTION ==================== -->
+    <section id="contact" class="contact-section">
+        <h2 class="section-title">Let's Connect</h2>
+        <p style="font-size: 1.1rem; margin: 1rem 0; color: var(--text-secondary);">
+            I'm always interested in hearing about new projects and opportunities. Feel free to reach out!
+        </p>
+
+        <div class="contact-links">
+            <a href="mailto:aswathigr.here@gmail.com" class="contact-link">
+                <i class="fas fa-envelope"></i> Email
+            </a>
+            <a href="https://github.com/AswathiGR" target="_blank" class="contact-link">
+                <i class="fab fa-github"></i> GitHub
+            </a>
+            <a href="https://www.linkedin.com/in/aswathigr/" target="_blank" class="contact-link">
+                <i class="fab fa-linkedin"></i> LinkedIn
+            </a>
+        </div>
+
+        <div class="social-links">
+            <a href="https://github.com/AswathiGR" target="_blank" class="social-icon">
+                <i class="fab fa-github"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/aswathigr/" target="_blank" class="social-icon">
+                <i class="fab fa-linkedin"></i>
+            </a>
+            <a href="mailto:aswathigr.here@gmail.com" class="social-icon">
+                <i class="fas fa-envelope"></i>
+            </a>
+        </div>
+
+        <p style="margin-top: 2rem; font-size: 0.95rem; color: var(--text-secondary);">
+            📍 Thiruvonam, Palakkad, Kerala, India | 🇮🇳
+        </p>
+    </section>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer>
+        <p>&copy; 2026 Aswathi G R. All rights reserved. | Crafted with <i class="fas fa-heart" style="color: var(--secondary);"></i> and a passion for technology.</p>
+    </footer>
+
+    <script>
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add animation on scroll
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.experience-card, .skill-category, .education-card, .award-card').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+    </script>
 
 </body>
-<script src="https://unpkg.com/scrollreveal"></script>
-
-        <!--===== MAIN JS =====--> 
-<script src="main.js"></script>
-
 </html>
